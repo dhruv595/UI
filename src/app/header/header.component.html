@@ -1,0 +1,70 @@
+<nav class="navbar" data-spy="affix">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar" style="background-color:#40ff00"></span>
+        <span class="icon-bar" style="background-color:#40ff00"></span>
+        <span class="icon-bar" style="background-color:#40ff00"></span>                        
+      </button>
+      <h1>
+        <a class="navbar-brand" routerLink="/home" Style="color:white; padding-top:20px;">
+          <h1>
+            We Heal U<b style="color:#40ff00">.</b></h1>
+        </a>
+      </h1>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#" style="color:white">About us</a></li>
+        <li><a routerLink='/contact' style="color:white;font-size:24px;">Contact</a></li>
+        <li><a  style="color:white">FAQs</a></li>
+        <li class="dropdown">
+          <a *ngIf="this.service.backend==null else other_content" href="#" style="color:white" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="" style="color:white; font-size:20px;"></span>Account</a>
+          
+          <ul class="dropdown-menu" *ngIf="this.service.backend==null" style="text-align:center;min-width: 120px;">
+            <li>
+              <a routerLink='/login'>
+                <h5><b>Login</b></h5>
+              </a>
+            </li>
+            <li>
+              <a routerLink='/patientreg'>
+                <h5><b>User Sign Up</b></h5>
+              </a>
+            </li>
+            <li>
+              <a routerLink='/doctorreg'>
+                <h5><b>Doctor Sign Up</b></h5>
+              </a>
+            </li>
+          </ul>
+          <ng-template #other_content>
+
+            <a *ngIf="this.service.backend.userType==2 else someother" href="#" style="color:white" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="" style="color:white; font-size:20px;"></span>Hi,Admin</a> 
+
+            <ng-template #someother >
+                <a *ngIf="this.service.backend.userLogin.userType==0" href="#" style="color:white" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="" style="color:white; font-size:20px;"></span>Hi, {{this.service.backend.userName|titlecase}}</a>
+                <a *ngIf="this.service.backend.userLogin.userType==1" href="#" style="color:white" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="" style="color:white; font-size:20px;"></span>Hi,{{this.service.backend.doctorName|titlecase}}</a>
+            </ng-template>            
+            </ng-template>
+
+          <ul class="dropdown-menu" *ngIf="this.service.backend!=null" style="text-align:center;min-width: 120px;">
+            <li> <a (click)="profile()">
+                <h5><b>Profile</b></h5></a>
+            </li>
+            <li>
+              <a routerLink='/login' (click)="onLogout()">
+                <h5><b>Log Out</b></h5>
+              </a>
+            </li>
+          </ul>
+        </li>
+      
+    </ul>
+    </div>
+  </div>
+</nav>

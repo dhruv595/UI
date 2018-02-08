@@ -1,0 +1,147 @@
+<div class="background">
+  <div class="container">
+
+    <div class="example-container mat-elevation-z8">
+      <mat-card><b class="text-primary">Doctor List</b></mat-card>
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      <mat-table #table [dataSource]="this.dataSource" matSort matTooltip="Give Feedback">
+
+        <!-- AppointmentID Column -->
+        <ng-container matColumnDef="DoctorId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Doctor ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.userLoginId}} </mat-cell>
+        </ng-container>
+
+        <!-- Appointment Date Column -->
+        <ng-container matColumnDef="DoctorName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.doctorName}} </mat-cell>
+        </ng-container>
+
+        <!-- Appointment Patient Name Column -->
+        <ng-container matColumnDef="Contact">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Contact </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.contact}} </mat-cell>
+        </ng-container>
+
+        <!-- Doctor Name Column -->
+        <ng-container matColumnDef="Place">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Place </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.zipCode.city}} </mat-cell>
+        </ng-container>
+
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="show(row)"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+      <p>*Click on the row for further details</p>
+    </div>
+<button style="visibility:hidden" id="modalOpen" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+
+<div style="margin-top:100px" id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Doctor Details</h4>
+      </div>
+      <!--<div class="modal-body">-->
+      <div class="form-group" style="margin:10px 10px 10px 10px">
+        <div class="row">
+          <label class="control-label col-sm-3">Doc Id:</label>
+          <div class="col-sm-3">
+            <p>{{data.userLoginId}}</p>
+          </div>
+          <label class="control-label col-sm-3">MCI Id:</label>
+          <div class="col-sm-3">
+            <p>{{data.mciId}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-3">Doctor Name:</label>
+          <div class="col-sm-3">
+            <p>{{data.doctorName}}</p>
+          </div>
+          <label class="control-label col-sm-3">Experience:</label>
+          <div class="col-sm-3">
+            <p>{{data.experience}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-3">Contact:</label>
+          <div class="col-sm-3">
+            <p>{{data.contact}}</p>
+          </div>
+          <label class="control-label col-sm-3">Gender:</label>
+          <div class="col-sm-3">
+            <p>{{data.gender}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-3">Qualification:</label>
+          <div class="col-sm-3">
+            <p>{{data.qualifications}}</p>
+          </div>
+          <label class="control-label col-sm-3">Time Slot:</label>
+          <div class="col-sm-3">
+            <p>{{data.timeSlot}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-3">Specialization:</label>
+          <div class="col-sm-3">
+            <p>{{data.subCategory.subCategoryName}}</p>
+          </div>
+          <label class="control-label col-sm-3">City:</label>
+          <div class="col-sm-3">
+            <p>{{data.zipCode.city}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <label class="control-label col-sm-3">Status:</label>
+          <div class="col-sm-3">
+            <p>{{status}}</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <!--<div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label><input type="checkbox"> Remember me</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>-->
+      <!--</div>-->
+      <div class="modal-footer">
+        <button *ngIf="!toggle" type="button" class="btn btn-default" (click)="activateStatus()">Activate</button>
+        <button *ngIf="toggle" type="button" class="btn btn-default" (click)="deactivateStatus()">Deactivate</button>
+        <button  type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

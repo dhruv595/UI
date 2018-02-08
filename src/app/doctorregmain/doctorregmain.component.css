@@ -1,0 +1,23 @@
+.main
+{   display:block;
+    padding-top: 30px;
+    padding-bottom: 45px;
+    margin-left: 10%;
+    margin-top:2%;
+    width:80%;
+    border:8px solid #0081bf;
+    border-radius: 15px;
+
+    }
+
+.alert
+{
+    background:#f2edda;
+    padding:7px;
+    font-size:0.3cm;
+    margin-bottom: 20px;
+    display:inline-block;
+    
+
+
+}

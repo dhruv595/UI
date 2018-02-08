@@ -1,0 +1,19 @@
+.main-div{
+width: 100%;
+margin-top: 160px;
+margin-bottom: 100px;
+height: 400px;
+}
+.inner-div{
+    text-align: center;
+}
+img {
+    width: 50%;
+    height: auto;
+    
+}
+ @media screen and (max-width: 767px) {
+      .main-div{
+        height: auto;
+      }
+    }

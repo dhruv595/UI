@@ -1,0 +1,198 @@
+<br>
+
+<nav class="navbar navbar">
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+      <li  >
+        <a href="#" class="btn btn-info btn-md">
+          <span class="glyphicon glyphicon-home"></span>
+          Home
+        </a>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li style="color:whitesmoke"><a routerLink="/upcomingAppointment">APPOINTMENT DETAILS</a></li>
+      <li></li>
+      <li  style="color:whitesmoke"><a data-toggle="modal" data-target="#myModal">HEALTH RECORDS</a></li>
+      <li></li>
+
+    </ul>
+
+  </div>
+</nav>
+<!--yashaswini-->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h6 class="modal-title"></h6>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" enctype="multipart/form-data">
+          <div class="form-group">
+
+            <input type="file" id="selectfile" name="selectfile" accept="application/pdf" formControlName="file" (change)="uploadImage($event)"
+              class="form-control-file  btn btn-primary" />
+            <br>
+          </div>
+          <input type="button" [disabled]="see" class="btn btn-primary" (click)="onUpload()" value="Upload file" id="uploadfile" class="form-control-file btn btn-primary"
+          />
+        </form>
+
+
+
+
+        <div *ngIf="tableDataCheck==true">
+          <table class="table">
+            <thead>
+              <th>Document</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of tableData;let i=index">
+                <td>{{item.fileName}}</td>
+
+
+                <td><a href="{{'https://wehealunov.blob.core.windows.net/weheal/'+item.fileName}}">View</a></td>
+                <td><button (click)="delete1(i,item.fileName)" class="btn btn-danger">Delete </button></td>
+              </tr>
+            </tbody>
+
+
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--yashaswini-->
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-2 toppad">
+
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{name}}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg"
+                class="img-circle img-responsive"> </div>
+
+            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+            <div class=" col-md-9 col-lg-9 ">
+              <div>
+                <form [formGroup]="updateUserForm">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h4>Email</h4>
+                        </td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <h4>{{email}}</h4>
+                          </div>
+                        </td>
+                        <td>
+                          <div *ngIf="!toggleEditView">
+                            <h4>{{email}}</h4>
+                          </div>
+                        </td>
+
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <h4>Aadhar</h4>
+                        </td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <h4>{{aadhar}}</h4>
+                          </div>
+                        </td>
+                        <td>
+                          <div *ngIf="!toggleEditView">
+                            <h4>{{aadhar}}</h4>
+                          </div>
+                        </td>
+                        <td></td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          <h4>Phone Number</h4>
+                        </td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <input class="form-control" value="{{phone}}" type="text" formControlName="contact" />
+                          </div>
+                          <div class="alert" *ngIf="!updateUserForm.controls['contact'].valid && updateUserForm.controls['contact'].touched">
+                            This field is required as 10 digit(9XXXXXXXXX)
+                          </div>
+                        </td>
+                        <td>
+                          <div *ngIf="!toggleEditView">
+                            <h4>{{phone}}</h4>
+                          </div>
+                        </td>
+
+                        <td></td>
+                      </tr>
+
+
+
+                    </tbody>
+                  </table>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer ">
+
+          <div *ngIf="!toggleEditView">
+            <a (click)="toggleEdit()" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+
+          </div>
+          <div *ngIf="toggleEditView">
+            <a (click)="sumbitUpdate(updateUserForm.value)" data-original-title="Edit this user" data-toggle="tooltip" type="button"
+              class="btn btn-sm btn-primary">Apply changes</a>
+            <button (click)="toggleEdit()" class="btn btn-default">Cancel</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

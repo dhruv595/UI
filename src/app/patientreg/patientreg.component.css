@@ -1,0 +1,106 @@
+.alert
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 0px;
+    padding-top: 0px;
+    background: transparent;
+    display:inline-block;
+    color:red;
+    
+
+
+}
+
+.tab-panel{
+    padding-top:130px;
+    padding-bottom:100px
+}
+.btn-success {
+  background-color: #23bab5;
+  border-radius:10px;
+  border: 2px solid #23bab5;
+  transition: all 400ms cubic-bezier(.4,0,.2,1);
+}
+
+.btn-success:hover,.btn-success:focus {
+  background: rgba(26, 161, 157, 0);
+  border: 2px solid #1aa19d;
+  transition: all 400ms cubic-bezier(.4,0,.2,1);
+  color: #23BAB5;
+}
+
+a {
+  color: #23bab5;
+}
+
+ul {
+  list-style-type: none;
+}
+
+article[role="login"] {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 30px 50px;
+  margin-bottom: 20px;
+}
+
+article[role="login"] input[type="submit"] {
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+article[role="login"]:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.19), 10px 15px 15px rgba(0, 0, 0, 0.23);
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 1px 15px rgba(0, 0, 0, 0.23);
+  -webkit-transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+article[role="login"] h3 {
+  font-size: 26px;
+  font-weight: 300;
+  color: #23bab5;
+  margin-bottom: 20px;
+}
+
+article[role="login"] p {
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+
+
+@media only screen and (max-width: 767px) {
+  .mobile-pull {
+    float: none;
+  }
+
+}
+
+.input-lg {
+	    height: 46px;
+	    padding: 10px 16px;
+	    font-size: 18px !important;
+	    line-height: 1.3333333;
+	    border-radius: 0;
+	}
+	.input-underline {
+	    background: 0 0;
+	    border: none;
+	    box-shadow: none;
+	    border-bottom: 2px solid gray;
+      opacity:0.5;
+	    color:  darkblue;
+	    border-radius: 0;
+	}
+	.input-underline:focus {
+	    border-bottom: 2px solid brown;
+	    box-shadow: none;
+	}  
+  h6{
+    margin-bottom: 5px;
+    margin-top: 0px;
+  }

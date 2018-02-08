@@ -1,0 +1,278 @@
+<br>
+
+<nav class="navbar navbar" >
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li>
+      <a routerLink="/home" class="btn btn-info btn-md">
+          <span class="glyphicon glyphicon-home"></span> Home
+        </a>
+      </li>
+      <li></li>
+      <li></li>
+     
+      <li></li>
+      <li style="color:whitesmoke"><a routerLink="/doctorAppointment">APPOINTMENT DETAILS</a></li>
+      <li></li>
+     
+
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+      <div class="row">
+     
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-2 toppad" >
+   
+   
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{name}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" class="img-circle img-responsive"> </div>
+                
+              <form [formGroup]="updateDoctorForm">
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td><h4>MCI-ID</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{mciid}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{mciid}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      
+                      <tr>
+                        <td><h4>Email</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{email}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{email}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><h4>Qualification</h4></td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <select   class="form-control" formControlName="qual">
+                              <option></option>
+                              <option>MBBS </option>
+                              <option>MD</option>
+                              <option>BMBS</option>
+                              <option>MBChB</option>
+                              <option>MBBCh</option>
+                              <option>Dr.MuD</option>
+                              <option>MBBCh</option>
+                              <option>Dr.Med</option>
+                              <option>DO</option>
+                              <option>MBBS, MD(Res)</option>
+                              <option>MBBS, DM</option>
+                              <option>MBBS, PhD</option>
+                              <option>MBBS, DPhil</option>
+                              <option>BMBS, MD(Res)</option>
+                              <option>BMBS, DM</option>
+                              <option>BMBS, PhD</option>
+                              <option>BMBS, DPhil</option>
+                            </select>
+                          </div>
+                        </td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{qualification}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><h4>Experience</h4></td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <select class="form-control" formControlName="exp">       
+                              <option>0-3</option>
+                              <option>4-8</option>
+                              <option>8-12</option>
+                              <option>more than 12</option>
+                            </select>
+                          </div>
+                        </td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{experience}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><h4>Specialization</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{specialization}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{specialization}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                        <tr>
+                        <td><h4>Working Days</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{workingdaysprint}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{workingdaysprint}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngIf="!toggleEditView">
+                        <td><div *ngIf="!toggleEditView"><h4>Available Time</h4></div></td>
+                        <td>
+                          <div *ngIf="false"><h4>{{time}}</h4></div>
+                        </td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{time}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr *ngIf="toggleEditView">
+                        <td><h4>From</h4></td>
+                        <td>
+                          <div class="form-group">
+                            <select class="form-control"  formControlName="fromtime" required>
+                              <option> </option>
+                              <option>00:00 </option>
+                              <option>01:00</option>
+                              <option>02:00</option>
+                              <option>03:00</option>
+                              <option>04:00</option>
+                              <option>05:00</option>
+                              <option>06:00</option>
+                              <option>07:00</option>
+                              <option>08:00</option>
+                              <option>09:00</option>
+                              <option>10:00</option>
+                              <option>11:00</option>
+                              <option>12:00</option>
+                              <option>13:00</option>
+                              <option>14:00</option>
+                              <option>15:00</option>
+                              <option>16:00</option>
+                              <option>17:00</option>
+                              <option>18:00</option>
+                              <option>19:00</option>
+                              <option>20:00</option>
+                              <option>21:00</option>
+                              <option>22:00</option>
+                              <option>23:00</option>
+                            </select>
+                          </div>
+                          <div class="alert" *ngIf="!updateDoctorForm.controls['fromtime'].valid && updateDoctorForm.controls['fromtime'].touched && toggleEditView" >
+                            This field is required.
+                          </div>
+                        </td>
+                      </tr>
+                      <tr *ngIf="toggleEditView">
+                        <td><h4>To</h4></td>
+                        <td>
+                          <select class="form-control" formControlName="totime" required>   
+                            <option> </option>
+                            <option>01:00</option>
+                            <option>02:00</option>
+                            <option>03:00</option>
+                            <option>04:00</option>
+                            <option>05:00</option>
+                            <option>06:00</option>
+                            <option>07:00</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>12:00</option>
+                            <option>13:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
+                            <option>18:00</option>
+                            <option>19:00</option>
+                            <option>20:00</option>
+                            <option>21:00</option>
+                            <option>22:00</option>
+                            <option>23:00</option>
+                            <option>24:00</option>
+                          </select>
+                          <div class="alert" *ngIf="!updateDoctorForm.controls['totime'].valid && updateDoctorForm.controls['totime'].touched && toggleEditView" >
+                            This field is required.
+                          </div>
+                          <div class="alert" *ngIf="updateDoctorForm.controls['totime'].value <= updateDoctorForm.controls['fromtime'].value  && toggleEditView" >
+                            To time should be greater than from.
+                          </div>
+                        </td>
+                      </tr>
+                       <tr>
+                        <td><h4>Consultation Fee</h4></td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                              <select class="form-control" formControlName="fee" required>
+                                <option> </option>
+                                <option value="100">100 Rs</option>
+                                <option value="200">200 Rs</option>
+                                <option value="300">300 Rs</option>
+                                <option value="400">400 Rs</option>
+                                <option value="500">500 Rs</option>
+                              </select>
+                          </div>
+                          <div class="alert" *ngIf="!updateDoctorForm.controls['fee'].valid && updateDoctorForm.controls['fee'].touched && toggleEditView" >
+                            This field is required.
+                          </div>
+                        </td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{fee}} Rs</h4></div></td>
+                        <td></td>
+                      </tr>
+                             
+                        <tr>
+                        <td><h4>Working  Address</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{address1}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{address1}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      
+
+                      <tr>
+                        <td><h4>City,State</h4></td>
+                        <td><div *ngIf="toggleEditView"><h4>{{address2}},{{address3}}</h4></div></td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{address2}},{{address3}}</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><h4>Phone Number</h4></td>
+                        <td>
+                          <div *ngIf="toggleEditView">
+                            <input class="form-control" type="number"  formControlName="contact"/>
+                          </div>
+                          <div class="alert" *ngIf="!updateDoctorForm.controls['contact'].valid && updateDoctorForm.controls['contact'].touched && toggleEditView">
+                            This field is required as 10 digit(9XXXXXXXXX)
+                          </div>
+                        </td>
+                        <td><div *ngIf="!toggleEditView"><h4>{{phone}}</h4></div></td>
+                        
+                        <td></td>
+                      </tr>
+                           
+                      
+                     
+                    </tbody>
+                  </table>
+                  
+                  
+                </div></form>
+              </div>
+            </div>
+            <div class="panel-footer "> 
+                   <div *ngIf="!toggleEditView">
+                     <a (click)="toggleEdit()" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                   </div>
+                   <div *ngIf="toggleEditView">
+                     <button (click)="submitUpdate(updateDoctorForm.value)" [disabled]="!updateDoctorForm.valid" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary">Apply changes</button>
+                     <button (click)="cancelEdit()" class="btn btn-default" >Cancel</button>
+                   </div>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+

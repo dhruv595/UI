@@ -1,0 +1,27 @@
+.footer {
+
+  padding-bottom: 10cm; 
+}
+.container{
+  padding-bottom:180px;
+}
+.space {
+  padding-top: 3cm;    
+   
+}
+.move {
+ 
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 80px;
+}
+.fot{
+ 
+    padding-top: 90px;
+    padding-bottom: 20px;
+    
+}
+.modal-dialog.modal-backdrop {
+    position: initial;
+}

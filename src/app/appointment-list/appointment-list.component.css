@@ -1,0 +1,32 @@
+.background{
+    background-color:#e6fffa;
+
+}
+
+.container
+{
+    width:80%;
+    height:600px; 
+    
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-row:hover
+{
+  cursor:pointer;
+  background:#e9f6fb; 
+}

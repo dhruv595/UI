@@ -1,0 +1,113 @@
+<div class="backgrounding">
+  <div class="container-fluid text-center ">
+    <div class="row content ">
+
+      <div class="col-sm-12 text-center main">
+        <div class="banner">
+         <!-- <h1><b>Anytime and Anywhere</b></h1>-->
+          <div class="search-component">
+            <form [formGroup]='searchForm' autocomplete="off">
+            <div class="search-input">
+              <input id="search" type="text" (click)="toggleDown()" placeholder="Search Doctor by Speciality Domain" formControlName="search"/>
+              <div clickOutside (clickOutside)="toggleUp()" *ngIf="showDropDown" class="search-input-dropdown">
+                <div>
+                  <a routerLink="/searchDoctor" style="text-decoration: none">
+                  <div (click)="selectValue(category)" class="search-list"  *ngFor="let category of categories|searchFilter:getSearchValue()">
+                    {{category.categoryName}}
+                  </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+          <a routerLink="/locatehospitals" id="locate">Locate Hospital<span class="glyphicon glyphicon-map-marker pull-right"></span></a>
+          <a routerLink="/review" id="feedback">Feedback<span class="glyphicon glyphicon-comment pull-right"></span></a>
+          <a href="#" id="calculator">Share us<span class="glyphicon glyphicon-globe pull-right"></span></a>
+        </div>
+      </div>
+      <!---bottom of middle part-->
+
+      <div class="container text-center ">
+        <div class="row1 row">
+          <a routerLink="/searchDoctor">
+            <div class="col-sm-3  col-lg-3 text-center feature">
+              <div class="icon"><span class="glyphicon glyphicon-ok glyphy" style="color:white; font-size:50px;"></span></div>
+              <h2>Book An Appointment</h2>
+              <p>With are Verified Doctors</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="col-sm-3  col-lg-3 text-center feature">
+              <div class="icon"><span class="glyphicon glyphicon-plus-sign glyphy" style="color:white; font-size:50px;"></span></div>
+              <h2>Search a Doctor From Our List</h2>
+              <p>Health solution on the click of ypur button</p>
+            </div>
+          </a>
+          <a href="#">
+            <div class="col-sm-3  col-lg-3 text-center feature">
+              <div class="icon"><span class="glyphicon glyphicon-time glyphy" style="color:white; font-size:50px;"></span></div>
+              <h2>Consult a Doctor Online</h2>
+              <p>We are always there for you</p>
+            </div>
+          </a>
+          <a routerLink='/review'>
+            <div class="col-sm-3  col-lg-3 text-center feature">
+              <div class="icon"><span class="glyphicon glyphicon-list-alt glyphy" style="color:white; font-size:50px;"></span></div>
+              <h2>Your Feedback is Important</h2>
+              <p>Your Feedback help people to find better doctor</p>
+            </div>
+          </a>
+        </div>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="main2">
+    <div class="container Carousel1 text-center">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="../../assets/image/doctor1.jpg" class="img-responsive center-block">
+            <!--<p> First Doctor review</p>-->
+          </div>
+
+          <div class="item">
+            <img src="../../assets/image/doctor2.jpg" class="img-responsive center-block">
+            <!--<p> Second Doctor review</p>-->
+          </div>
+
+          <div class="item">
+            <img src="../../assets/image/doctor3.jpg" class="img-responsive center-block">
+           <!-- <p> Third Doctor review</p>-->
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

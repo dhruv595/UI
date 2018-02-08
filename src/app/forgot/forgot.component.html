@@ -1,0 +1,112 @@
+<body>
+<!-- Modal -->
+<div [formGroup]="myform" (ngSubmit)="onSubmit()">
+<div id="myModal" class="modal fade"  role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">We Heal U</h4>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="message" class="alert alert-danger text-center " style="height:50px" ><h4>{{message}}</h4></div>
+        <input  type="text" class="form-control col-xs-2" formControlName="emailotp" placeholder="Enter the otp" required>
+        <!--<p>{{this.myform.value.emailotp}}</p>-->
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="close" data-dismiss="modal" (click) = "click">Sub</button> -->
+        <button type="button" class="btn btn-lg" (click)="forgotPassword()">Re-Send</button>
+        <button type="button" id="submitForm" class="btn btn-lg" (click)="otpcheck(this)">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<!--model close-->
+<div [formGroup]="myform" (ngSubmit)="onSubmit()">
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <!--<div class="modal-backdrop">-->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="mess" class="alert alert-danger text-center " style="height:50px" ><h4>{{mess}}</h4></div>
+        <div>
+        <label>New Password</label>
+        <input  type="password" class="form-control col-xs-2" formControlName="newpassword" placeholder="New Password" required>
+        </div>
+        <div>   
+        <label>Confirm Password</label>
+        <input  type="password" class="form-control col-xs-2" formControlName="confirmpassword" placeholder="Confirm Password" required>
+        </div>
+        <!--<p>{{this.myform.value.emailotp}}</p>-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="datamodal" class="btn btn-lg" [disabled]="!(newpassword.valid && confirmpassword.valid)"  (click) = "confimclick()" data-backdrop="static">Submit</button>
+         <!--<button type="button" class="btn btn-lg"   data-dismiss="modal" data-backdrop="false" ></button>-->
+        <!--<button type="button" id="submitForm" class="btn btn-lg" data-toggle="collapse" toggle="modal" data-target="#demo-1">Submit</button>-->
+      </div>
+      <!--</div>-->
+    </div>
+
+  </div>
+</div>
+</div>
+
+  </body>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                          <h3><i class="fa fa-lock fa-4x"></i></h3>
+                          <h2 class="text-center">Forgot Password?</h2>
+                          <p>You can reset your password here.</p>
+                            <div class="panel-body">
+                              
+                              <form class="form-group" [formGroup]="myform" (ngSubmit)="onSubmit()" ngNativeValidate>
+                                <fieldset>
+                                  <div class="form-group">
+                                    <div class="input-group" [ngClass]="{
+                    'has-warning':email.invalid&&(email.pristine||email.untouched),
+                    'has-success':email.valid&&(email.dirty||email.touched)
+                    }">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                         <input  type="text" class="form-control" formControlName="email" placeholder="Enter the registered email address" required>
+                                    </div>
+                                    <div
+     *ngIf="email.errors && (email.dirty || email.touched)">
+  <p class="text-danger" *ngIf="email.errors.required">Email is required</p>
+   <p class="text-danger"  *ngIf="email.errors.pattern">Invalid Email</p>
+   </div>
+<div>
+  <h6><b>Send OTP VIA </b></h6>
+  </div>
+  <div >
+    <input type="radio" id="otp" (click)="storeOTP('email')" name = "otp" required><span>  Send Otp via email    </span><br><br><b>OR</b><br><br><input type="radio"  (click)="storeOTP('phone')" name = "otp" required><span>  Send Otp via Phone    </span>
+    </div>
+    </div>
+                                  <div class="form-group">
+                                    <button class="btn btn-lg btn-primary btn-block"   [disabled]="!(email.valid && filled==true)"  type="submit" data-toggle="modal"  data-target="#myModal" data-backdrop="static" id="myBtn2" (click)="rememberotp()">Send OTP</button>
+                                  </div>
+                                </fieldset>
+                              </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

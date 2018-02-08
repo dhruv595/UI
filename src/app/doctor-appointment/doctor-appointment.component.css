@@ -1,0 +1,39 @@
+.background{
+    background-color:#e6fffa;
+    
+}
+
+.container
+{
+    width:80%;
+    height:630px; 
+    
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); 
+  -webkit-box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3); 
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+
+
+}
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-row:hover
+{
+  cursor:pointer;
+  background:#e9f6fb; 
+}

@@ -1,0 +1,70 @@
+<div class="container main-div">
+  <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <div class="form-group">
+      <div class="position">
+        <h1>Your Feedback is Important</h1>
+      </div>
+    </div>
+    <div class="box">
+      <div class="form-group">
+        <!-- <div class="show">
+    <h2> Doctor's Name : </h2>
+    <h3> {{ doctor }} </h3>
+  </div>-->
+      </div>
+      <div class="form-group">
+        <label  for="rate">Rate us</label>
+        <div class="star-rating str-position">
+          <input id="star-5" type="radio" formControlName="feedbackRating" value="5">
+          <label for="star-5" title="star 5" class="str-label">
+  <span class="glyphicon glyphicon-star"></span>
+  </label>
+
+          <input id="star-4" type="radio" formControlName="feedbackRating" value="4">
+          <label for="star-4" title="star 4" class="str-label">
+  <span class="glyphicon glyphicon-star"></span>
+  </label>
+
+          <input id="star-3" type="radio" formControlName="feedbackRating" value="3">
+          <label for="star-3" title="star 3" class="str-label">
+  <span class="glyphicon glyphicon-star"></span>
+  </label>
+
+          <input id="star-2" type="radio" formControlName="feedbackRating" value="2">
+          <label for="star-2" title="star 2" class="str-label">
+  <span class="glyphicon glyphicon-star"></span>
+  </label>
+          <input id="star-1" type="radio" formControlName="feedbackRating" value="1">
+          <label for="star-1" title="star 1" class="str-label">
+  <span class="glyphicon glyphicon-star"></span>
+  </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cmnt"> Your experience with doctor:</label>
+        <textarea class="form-control" id="cmnt" formControlName="feedbackStatement" rows="3" placeholder="write here..."
+          required></textarea>
+      </div>
+
+       <div class="form-group">
+        <label for="service">Share your views on our services:</label>
+        <textarea class="form-control" id="service" formControlName="feedbackService" rows="3" placeholder="write here..."
+          required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="suggestion">Any Suggestions:</label>
+        <textarea class="form-control" id="suggestion" formControlName="feedbackSuggestion" rows="3" placeholder="write here..."
+          required></textarea>
+      </div>
+
+
+      <div>
+        <input type="submit" class="btn btn-info" [disabled]="!form.valid" value="Submit">
+        <a routerLink='' class="btn btn-info" role="button">Cancel</a>
+      </div>
+    </div>
+  </form>
+
+</div>
+<br>
+<br>

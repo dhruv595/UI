@@ -1,0 +1,52 @@
+<div class="background">
+  
+  <div class="container">
+    <mat-card><b class="text-primary">Upcoming Appointment</b></mat-card>
+    
+    <div style="margin-top:10px" class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="this.dataSource" matSort matTooltip="View Details">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="appointmentId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Appointment ID </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.appointmentId}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="appointmentDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.appointmentDate}} </mat-cell>
+        </ng-container>
+
+         <!-- Appointment Patient Name Column -->
+        <ng-container matColumnDef="patientName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Patient  </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.patientDetails.patientName}} </mat-cell>
+        </ng-container>
+        <!-- Weight Column -->
+        <ng-container matColumnDef="doctorName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Doctor Name </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.doctor.doctorName}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Place">
+          <mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Click for Sort"> Place </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.doctor.zipCode.city}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="show(row)"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+      </mat-paginator>
+      <p>*Click on the row for details</p>
+    </div>
+
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

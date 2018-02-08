@@ -1,0 +1,183 @@
+
+.backgrounding
+{
+  overflow-x:hidden;
+}
+
+
+.row.content {height: 500px}
+h1{
+  padding:0px;
+  margin:0px;
+
+}
+.banner{
+padding-top:150px;
+}
+.main
+{
+   background-image:url(../../assets/image/doctor.jpg);
+   height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: visible;
+}
+   
+    /*middle-bottom part*/
+    .feature
+    {
+     
+     margin-top:20px;
+     padding: auto;
+     
+     }
+     /*icon circle behind*/
+  .icon{
+     background-color:  #0081bf;  
+     border-radius: 100%;
+     height:80px;
+     width:80px;
+     position: relative;
+     margin:auto;
+  }
+
+  .glyphy
+  {
+    position: relative;
+     margin-top:14px;
+  }
+  /*margin for row of feature*/
+  /*.row1{
+      margin:auto;
+      margin-left:100px;
+    }*/
+  #mySidenav a {
+    margin-top: 250px;
+    position: fixed;
+    z-index: 2;
+    left: -165px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 210px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+   #mySidenav a:hover {
+        left: -10px;
+
+    }
+
+#locate {
+    top: 20px;
+    background-color: #4CAF50;
+}
+
+
+#feedback {
+    top: 80px;
+    background-color: #f44336;
+}
+
+#calculator {
+    top: 140px;
+    background-color: #2196F3;
+}
+form{
+  padding-top:50px;
+}
+input[type=text] {
+    width: 50%; 
+    box-shadow: #0081bf;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+}
+.input-group-btn{
+  box-sizing: border-box;
+}
+.Carousel1{
+  width: 100%;
+  box-sizing:unset;
+
+  
+
+
+}
+img{
+   border-radius: 100%;
+   padding:0;
+}
+.main2
+{
+  background-image:url(../../assets/image/doctor.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*-------------------------------------------------------------*/
+.container
+{
+  margin:auto;
+}
+
+.search-input input{
+    width:50%;
+    height:50%;
+    min-height: 40px;
+    border-radius: 10px;
+    padding:1%;
+    margin-top:5%;
+}
+
+.search-input input:hover{
+  box-shadow: 2px 2px 10px #c2c2c2;
+}
+
+.search-input input:focus{
+  background-color: white;
+  border-color: darkgrey;
+}
+
+.search-input-dropdown{
+    margin-left: 25%;
+    margin-right: 25%;
+    width:50%;
+  
+    max-height: 200px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 2px 2px 5px grey;
+    overflow: auto;
+    text-align: left;
+}
+
+.search-list{
+    padding:8px;
+    font-size: 15px;
+
+}
+
+.search-list:hover{
+    background-color:#c2c2c2 ;
+}
+
+      /*------------------------------------------------------*/
+     
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }

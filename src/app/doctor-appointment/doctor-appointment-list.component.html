@@ -1,0 +1,36 @@
+
+<h1 mat-dialog-title><b>Appointment Details</b></h1>
+<div  mat-dialog-content>
+
+  <ul>
+
+    
+    <li>
+      <b>Patient Name:</b><br>{{data.patientDetails.patientName}}
+    </li>
+    <li>
+      <b>Appointment Date:</b><br>{{data.appointmentDate}}
+    </li>
+    <li>
+      <b>Time:</b><br>{{data.appointmentSlot}}
+    </li>
+    <li>
+      <b>Age:</b><br>{{data.patientDetails.age}}
+    </li>
+    <li>
+      <b>Gender:</b><br>{{gender}}
+    </li>
+    <li>
+      <b>Contact No:</b><br>{{data.user.userContact}}
+    </li>
+    <li>
+        <b>Patient Records</b>
+    </li>
+    <li *ngFor="let item of patientFile">
+      <a href="{{'https://wehealunov.blob.core.windows.net/weheal/'+item}}">{{item}}</a>
+    </li>
+
+  </ul>
+ <button   data-toggle="confirmation" style="margin-left:40px" class="btn btn-primary" (click)="onoClick(data)">Cancel</button>
+
+</div>

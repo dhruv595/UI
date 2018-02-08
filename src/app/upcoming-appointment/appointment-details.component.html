@@ -1,0 +1,32 @@
+
+<h1 mat-dialog-title><b>Appointment Details</b></h1>
+<div  mat-dialog-content>
+
+  <ul>
+
+    <li>
+      <b>Doctor:</b><br>{{data.doctor.doctorName}}
+    </li>
+    <li>
+      <b>Patient Name:</b><br>{{data.patientDetails.patientName}}
+    </li>
+    <li>
+      <b>Appointment Date:</b><br>{{data.appointmentDate}}
+    </li>
+    <li>
+      <b>Time:</b><br>{{data.appointmentSlot}}
+    </li>
+    <li>
+      <b>Place:</b><br>{{data.doctor.zipCode.area}}
+    </li>
+    <li>
+      <b>City:</b><br>{{data.doctor.zipCode.city}}
+    </li>
+    <li>
+      <b>Contact No:</b><br>{{data.doctor.contact}}
+    </li>
+
+  </ul>
+ <button   data-toggle="confirmation" style="margin-left:40px" class="btn btn-primary" (click)="onoClick(data)">Cancel</button>
+
+</div>

@@ -1,0 +1,205 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div data-spy="scroll">
+      <div class="tabbable-line">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#adminTab" data-toggle="tab">
+              <span class="glyphicon glyphicon-home"></span> Admin Home
+            </a>
+          </li>
+          <li>
+            <a href="#userTab" data-toggle="tab" class="btn btn-primary btn-lg">
+              <span class="glyphicon glyphicon-user" style="font-size:19px;color:green">User List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#activeTab" data-toggle="tab" class="btn btn-primary btn-lg">
+              <span class="fa fa-user-md" style="font-size:21px;color:green"> Doctor List</span>
+            </a>
+          </li>
+          <!--<li>
+            <a href="#inactiveTab"  data-toggle="tab" class="btn btn-primary btn-lg">
+              <span class="fa fa-user-md" style="font-size:21px;color:green"> New Doctor List</span>
+            </a>
+        </li>-->
+        </ul>
+      </div>
+    </div>
+
+    <br><br><br>
+
+    <div class="tab-content">
+      <div id="adminTab" class="tab-pane active">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-2 toppad">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">{{name}}</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3 col-lg-3 " align="center">
+                    <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" class="img-circle img-responsive">
+                  </div>
+
+                  <div class=" col-md-9 col-lg-9 ">
+                    <table class="table table-user-information">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <h4>Email</h4>
+                          </td>
+                          <td>
+                            <!--<h4>{{email}}</h4>-->
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h4>Aadhar</h4>
+                          </td>
+                          <td>
+                            <h4>{{aadhar}}</h4>
+                          </td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <h4>Phone</h4>
+                          </td>
+                          <td>
+                            <h4>{{phone}}</h4>
+                          </td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+
+      <div id="userTab" class="tab-pane">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9" align="center">
+            <ul class="list-group">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let userlist of users; let i = index">
+                      <td>{{userlist.userName}}</td>
+                      <td>{{userlist.userLogin.email}}</td>
+                      <td>{{userlist.userContact}}</td>
+                      <td>{{userlist.userLogin.accountStatus}}</td>
+                      <td><button *ngIf="userlist.userLogin.accountStatus!=0" (click)="!deletePatientValue(i)" class="btn btn-primary">Remove Profile</button></td>
+                      </tr>
+                  </tbody>
+                  </table>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="activeTab" class="tab-pane">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9" align="center">
+            <ul class="list-group">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Login ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>MCI-ID</th>
+                      <th>Account Status</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let doctorlist of doctors; let i = index">
+
+                      <td>{{doctorlist.userLogin.userLoginId}}</td>
+                      <td>{{doctorlist.doctorName}}</td>
+                      <td>{{doctorlist.userLogin.email}}</td>
+                      <td>{{doctorlist.contact}}</td>
+                      <td>{{doctorlist.mciId}}</td>
+                      <td>{{doctorlist.userLogin.accountStatus}}</td>
+                      <td class="status">{{doctorlist.status}}</td>
+                      <td>
+                        <button *ngIf="doctorlist.userLogin.accountStatus!=0" (click)="!deleteDoctorValue(i)" class="btn btn-danger">Deactivate Account</button>
+                        <button (click)="verify(i,doctorlist.userLogin.userLoginId)" name="verify" [class]=setClass(doctorlist.status,i) >Verify</button>
+                      </td>
+                      </tr>
+                  </tbody>
+
+                  </table>
+
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!--   
+  <div id="inactiveTab" class="tab-pane">
+    <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9" align="center">
+       <ul class="list-group">
+         <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>MCI-ID</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let doctorlist of verifyDoctor; let i = index">
+              <div >
+                 <td>{{doctorlist.doctorName}}</td>
+                <td>{{doctorlist.userLogin.email}}</td>
+                <td>{{doctorlist.contact}}</td>
+                <td>{{doctorlist.mciId}}</td>
+                <td>{{doctorlist.userLogin.accountStatus}}</td>
+                 <td> 
+                  <button (click)="verifyDoctorValue(i)"  class="btn btn-success">Activate Account</button></td>
+               
+               
+              </tr>
+          </tbody>
+        </table> 
+         </div>
+       </ul>
+     </div>
+   </div>
+   </div>-->
+    </div>
+  </div>
+</nav>
+<br><br><br><br>

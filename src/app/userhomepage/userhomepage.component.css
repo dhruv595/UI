@@ -1,0 +1,35 @@
+
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(230, 230, 230);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:50px;
+}
+
+.navbar
+{
+background-color:#04d799;
+
+}
+
+.alert
+{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 0px;
+    padding-top: 0px;
+    background: transparent;
+    display:inline-block;
+    color:red;
+}

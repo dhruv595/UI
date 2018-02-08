@@ -1,0 +1,49 @@
+ h1{
+        margin:0;
+        padding:0; 
+    }
+    /* standard template*/
+    /*Top header*/
+    .navbar-brand{
+      position: relative;
+      z-index: 2;
+    }
+     .affix {
+      top: 0;
+      width: 100%;
+      z-index: 9000 !important;
+  }
+    .navbar 
+    {
+      margin-bottom: 0;
+      border-radius: 0;
+       background: linear-gradient(to right, #00ae7b , #0081bf);
+     /*color:aliceblue;*/
+      height:80px;
+    }
+    /* top navigation*/
+     .navbar-nav{
+      font-size:24px;
+      padding-top:18px;
+
+    }
+    .nav>li>a:hover {
+    text-decoration: none;
+    /*/* background-color: #eee; */
+    background-color: #7dada9;
+    }
+
+    
+    #myNavbar{
+      background: linear-gradient(to right, #00ae7b , #0081bf);
+      position:relative;
+      z-index: 1;
+    }
+
+    .navbar-toggle{
+      border-color: #40ff00;
+    }
+
+    .humburger{
+      padding-top:30px;
+    }

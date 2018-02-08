@@ -1,0 +1,66 @@
+    <div class="container">
+        <div class="card card-container">
+            <img class="profile-img-card" src="https://sourceforge.net/p/optipng/bugs/46/attachment/avatar_2x_optimized.png" />
+
+
+            <div *ngIf="message" class="alert alert-danger text-center " style=" font-size: 4px">
+                <h6>{{message}}</h6>
+            </div>
+            <form [formGroup]="myform" validate>
+
+
+                <div class="form-group" [ngClass]="{
+                    'has-warning':name.invalid&&(name.pristine||name.untouched),
+                    'has-success':name.valid&&(name.dirty||name.touched)
+                    }">
+                    <label>User Id</label>
+                     
+                    <input type="name" [(ngModel)]="Email" class="form-control" formControlName="name" placeholder="UserId" required>
+                    <div *ngIf="name.errors && (name.touched)">
+                        <p class="text-danger" *ngIf="name.errors.required">Email is required</p>
+                        <p class="text-danger" *ngIf="name.errors.pattern">Invalid Email</p>
+                    </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{
+                    'has-warning':password.invalid&&(password.pristine||password.untouched),
+                    'has-success':password.valid&&(password.dirty||password.touched)
+                    }">
+                    <label><span>Password</span></label>
+                    <input id="pass" type="password" [(ngModel)]="pass" class="form-control" formControlName="password" placeholder="Password">
+                    <!--<button (click) = "showPass()">show</button>-->
+
+
+
+                    <div *ngIf="password.errors && (password.dirty || password.touched)">
+                        <p class="text-danger" *ngIf="password.errors.required">Password is required</p>
+                        <p class="text-danger" *ngIf="password.errors.minlength">Password must be minimum 8 characters long, we need another {{password.errors.minlength.requiredLength
+                            - password.errors.minlength.actualLength}} characters </p>
+                    </div>
+                </div>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" (click) = "rememberMe()" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" (click)="onSubmit()" type="submit">Sign in</button>
+
+                <div class="left">
+                    <a routerLink="/forgot" class="btn" role="button">Forgot password?</a></div>
+                <div class="text-primary">
+                    Don't have an Account?</div>
+
+
+                <div>
+                    <a type="button" routerLink="/doctorreg" class="btn btn-primary" role="button">Doctor Sign Up </a>
+                    <a type="button" routerLink="/patientreg" class="btn btn-warning">User Sign UP</a>
+
+                </div>
+            </form>
+            <!--<pre>{{myform.value|json}}</pre>-->
+            <div>
+            </div>
+        </div>
+        <!-- /card-container -->
+    </div>
+    <!-- /container -->

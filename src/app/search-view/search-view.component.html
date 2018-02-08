@@ -1,0 +1,144 @@
+<div style="background-color:#f2f2f2;padding-top:2%;padding-bottom:2%;height:auto;">
+  <div class="search-container" >
+    <div class="search-component">
+      <form [formGroup]='searchForm' autocomplete="off">
+        <div class="search-bar">
+        <div class="search-input">
+          <h3>Search for a doctor </h3>
+        <input id="search" type="text" (click)="toggleDown()" placeholder="{{searchPlaceholder}}" formControlName="search"/>
+         <div clickOutside (clickOutside)="toggleUp()" *ngIf="showDropDown" class="search-input-dropdown">
+          <div>
+           <div (click)="selectValue(category)" class="search-list"  *ngFor="let category of categories|searchFilter:getSearchValue()">
+           {{category.categoryName}}
+           </div>
+          </div>
+         </div>
+       </div>
+  
+      </div>
+      </form>
+
+      <div class="search-filter row">
+         <div >
+          <button class="btn btn-primary" data-toggle="collapse" data-target="#filter">
+            <span class="glyphicon glyphicon-filter" style="font-size:20px;">Filter</span>
+          </button>
+         </div>
+       </div>
+
+        <div id="filter" class="collapse search-filter-options">
+          <form (ngSubmit)="submitFilter(filterForm.value)" [formGroup]="filterForm">
+            <div class="row">
+              <div class="col-lg-3 col-sm-6 col-md-12">
+                <div class="form-group"> <label style="font-size:.5cm">Gender</label>
+                  <div class="form-control">
+                    <input type="radio" name="gender" value="M" formControlName="gender"/>Male
+                    <input type="radio" name="gender" value="F" formControlName="gender"/>Female
+                    <input type="radio" name="gender" value="O" formControlName="gender"/>Other
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-sm-6 col-md-12">
+                <div class="form-group"> <label style="font-size:.5cm">Location</label>
+                  <select class="form-control"  name="location" id="location" formControlName="zipCode">
+                    <option value=""></option>
+                    <option value="{{zip.zipCode}}" *ngFor="let zip of zipcodes" >{{zip.city}}, {{zip.state}}, India</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 col-md-12">
+                <div class="form-group"> <label style="font-size:.5cm">Speciality</label>
+                  <select class="form-control" name="sub_category" id="sub_category" formControlName="sub_category_id">
+                    <option value=""></option>
+                    <option value="{{sub_category.subCategoryId}}" *ngFor="let sub_category of subCategories">{{sub_category.subCategoryName}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <input type="submit" class="btn btn-info" value="Apply" />
+              <button type="button" (click)="clearfilter()" value="Clear Filters" class="btn btn-default" >Clear Filters</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      
+      <div>
+       <ng-template #message><div style="margin-left:2%;">No doctors to show</div></ng-template>
+      </div>
+
+<!--test    -->
+<div *ngIf="doctors != null;else message" style="margin-top:15px;">
+  <div class="container"  *ngFor="let doc of doctors|doctorFilter:getFilterForm()">
+      <div class="row" >
+     
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12 col-xs-offset-0  toppad" >
+          
+   
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Dr. {{doc.doctorName}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-1 " align="left"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" class="img-circle img-responsive"> </div>              
+                 <div class="col-md-6 col-lg-9 " align="center"> 
+                    <table>
+                      <tr>
+                        <td>Specialization: </td>
+                        <td><h4>{{doc.subCategory.subCategoryName}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td>Experience: </td>
+                        <td><h4>{{doc.experience}} yrs</h4></td>
+                      </tr>
+                      <tr>
+                        <td>Qualifications: </td>
+                        <td><h4>{{doc.qualifications}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td>Consultation Time: </td>
+                        <td><h4>{{doc.timeSlot}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td>Consultation Fee: </td>
+                        <td><h4>{{doc.fee}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td>City: </td>
+                        <td><h4>{{doc.zipCode.city|titlecase}}</h4></td>
+                      </tr>
+                      <tr>
+                        <td><div *ngIf="doc.gender=='M'"><h4>Male</h4></div></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td><div *ngIf="doc.gender=='F'"><h4>Female</h4></div></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer ">
+                  <input class="btn btn-info" type="button" value="Book an Appointment" (click)="BookAppointment(doc)" />
+                 </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+  </div>
+
+  
+
+  <!--end of test -->
+
+  </div>
+
+
+</div>

@@ -1,0 +1,225 @@
+<div class="background">
+<div class="container ">
+  <br>
+  <br>
+  <mat-vertical-stepper [linear]="isLinear"class="stepperForm" >
+    <mat-step [stepControl]="dateForm" >
+      <form [formGroup]="dateForm" >
+        <ng-template matStepLabel>Booking Information</ng-template>
+        <div class="form-group">
+          <label style="font-size:.5cm">Booking Date:</label>
+          <input [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date" min="{{date | date:'yyyy-MM-dd'}}" class="form-control" formControlName="appointment_date" readonly>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi="true" #picker></mat-datepicker>
+          <mat-hint align="start"> Here's date picker </mat-hint>
+
+        </div>
+        <div class="form-group">
+          <label style="font-size:.5cm">Select your Appointment slot</label>
+          <select class="form-control"  formControlName="appointment_time">
+                   <option *ngFor="let slot of myslot">{{slot}}</option>
+                   <!--<option>{{json1 | json}}</option>-->
+      </select>
+        </div>
+        <div class="alert" *ngIf="!dateForm.get('appointment_time').valid && form.get('appointment_time').touched">
+          Please select time
+        </div>
+        <div>
+          <button mat-raised-button matStepperNext  [disabled]="!dateForm.valid" >Next</button>
+        </div>
+        
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="patientForm">
+      <form [formGroup]="patientForm" >
+        <ng-template matStepLabel>Patient Information</ng-template>
+        <div class="form-group">
+          <label style="font-size:.5cm">Name of Patient:</label>
+          <input type="text" class="form-control" placeholder="Enter name of Patient" formControlName="patientName">
+        </div>
+        <div  *ngIf="!patientForm.get('patientName').valid && patientForm.get('patientName').touched">
+          <span  class="alert" *ngIf="!patientForm.get('patientName').errors.pattern">
+              This field is required with max 25 characters(space allowed)
+          </span>
+          <span  class="alert" *ngIf="patientForm.get('patientName').errors.pattern">
+              This field is required with alphabets only
+          </span>    
+        </div>
+        
+        <div class="form-group">
+          <label style="font-size:.5cm">Age of Patient</label>
+          <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="Enter Age" formControlName="age">
+        </div>
+        <div class="alert" *ngIf="!patientForm.get('age').valid && patientForm.get('age').touched">
+          This field only accept numbers
+        </div>
+        <div class="form-group">
+          <label style="font-size:.5cm">Gender</label>
+          <select class="form-control" placeholder="Gender" formControlName="gender">
+                   <option value="1" >Male</option>
+                   <option value="0">Female</option>
+                   <option value="2">Others</option>
+      </select>
+        </div>
+        <div class="alert" *ngIf="!patientForm.get('gender').valid && patientForm.get('gender').touched">
+          Mandatory Input
+        </div>
+        <div class="form-group">
+          <label style="font-size:.5cm">Relation of Patient with User</label>
+          <select class="form-control" placeholder="Gender" formControlName="patientRelation">
+                   <option>Father</option>
+                   <option>Mother</option>
+                   <option>Brother</option>
+                   <option>Sister</option>
+                   <option>Uncle</option>
+                   <option>Aunty</option>
+                   <option>Wife</option>
+                   <option>Son</option>
+                   <option>Daughter</option>
+                   <option>Friend</option>
+                   <option>Others</option>
+        </select>
+
+        </div>
+        <div class="alert" *ngIf="!patientForm.get('patientRelation').valid && patientForm.get('patientRelation').touched">
+          Mandatory Input
+        </div>
+        <div class="form-group">
+          <label style="font-size:.5cm">Symptoms</label>
+          <textarea rows="5" cols="5" class="form-control" placeholder="Please Specify your Symptoms" formControlName="symptoms"></textarea>
+        </div>
+        <div>
+      
+          <button type="button" mat-raised-button color="primary" data-toggle="modal" data-target="#myModal">Medical history</button>
+          <button mat-raised-button matStepperPrevious>Back</button>
+          <button mat-raised-button matStepperNext [disabled]="!patientForm.valid">Next</button>
+
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="paymentForm">
+      <form [formGroup]="paymentForm" >
+        <ng-template matStepLabel>Payment Getaway</ng-template>
+        <div class="form-group">
+          <label style="font-size:.5cm">Select your Bank </label>
+           <select class="form-control" placeholder="Select time" formControlName="bank">
+                   <option>State Bank Of India</option>
+                   <option>Punjab National Bank</option>
+                   <option>ICICI Bank</option>
+                   <option>HDFC Bank</option>
+          </select>
+          </div>
+          <div class="alert" *ngIf="!paymentForm.get('bank').valid && paymentForm.get('bank').touched">
+           Mandatory Field
+          </div>
+          <div class="form-group">
+          <label style="font-size:.5cm">Select type of your Card </label>
+           <select class="form-control" placeholder="Select time" formControlName="typeOfCard">
+                   <option>Visa Card</option>
+                   <option>Mastero Card</option>
+                   <option>Master Card</option>
+                   <option>Rupay Card</option>
+          </select>
+          </div>
+          <div class="alert" *ngIf="!paymentForm.get('typeOfCard').valid && paymentForm.get('typeOfCard').touched">
+          Mandatory Field
+          </div>
+          <div class="form-group">
+            <label style="font-size:.5cm">Enter Card number</label>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="Enter your card number" formControlName="cardNo" >
+          </div>
+          <div class="alert" *ngIf="!paymentForm.get('cardNo').valid && paymentForm.get('cardNo').touched">
+             Mandatory Field
+          </div>
+
+
+
+
+
+          <div class="form-inline">
+            <div class="form-group">
+              <label style="font-size:.5cm" >CVV</label><br>
+              <input type="password" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="Type CVV" formControlName="cvv" >
+              
+              <span class="alert" *ngIf="!paymentForm.get('cvv').valid && paymentForm.get('cvv').touched">
+                 Mandatory Field
+              </span>
+
+            </div>
+            
+            <div class="form-group"  matTooltip="MM/YY" [matTooltipPosition]="position">
+              <label style="font-size:.5cm">Expiry Date</label><br>
+              <input type="text" class="form-control" placeholder="Type Expiry Date" formControlName="expDate" >
+            
+              <span class="alert" *ngIf="!paymentForm.get('expDate').valid && paymentForm.get('expDate').touched">
+                Mandatory Field
+              </span>
+            </div>
+            </div>
+          
+          
+
+
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button [disabled]="!paymentForm.valid"  mat-raised-button color="primary" (click)="onLastSubmit()">Pay {{this.fees}}</button>
+
+      </div>
+      </form>
+    </mat-step>
+  </mat-vertical-stepper>
+</div>
+</div>
+
+
+<!--Yashaswini's Code-->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h6 class="modal-title"></h6>
+        </div>
+        <div class="modal-body">
+          
+          <form [formGroup]="form" enctype="multipart/form-data">
+            <div class="form-group" >
+              
+              <input type="file" id="selectfile" name="selectfile" accept="application/pdf"  formControlName="file" (change)="uploadImage($event)"   class="form-control-file  btn btn-primary"/>
+              <br>
+              </div>
+             <input type="button" [disabled]="see"   class="btn btn-primary"  (click)="onUpload()"  value="Upload file" id="uploadfile" class="form-control-file btn btn-primary"/>
+          </form>
+        
+        
+          
+          
+        <div *ngIf="tableDataCheck==true">
+          <table class="table">
+            <thead>
+              <th>Document</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of tableData;let i=index">
+              <td>{{item.fileName}}</td>
+              
+             
+     <td><a href="{{'https://wehealunov.blob.core.windows.net/weheal/'+item.fileName}}">View</a></td>
+              <td><button (click)="delete1(i)" class="btn btn-danger">Delete </button></td>
+              </tr>
+            </tbody>
+           
+    
+         </table>   
+        </div>
+        </div>
+       
+        <div class="modal-footer">
+          <!--<h6 class="modal-footer">Please open this in internet explore for path support</h6>-->
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           </div>
+        </div>
+      </div>
+  </div>
+

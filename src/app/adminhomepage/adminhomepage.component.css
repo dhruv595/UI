@@ -1,0 +1,19 @@
+.main{
+    padding-top:5%;
+    padding-bottom:50%;
+}
+.navbar{
+    background-color:whitesmoke;
+}
+.container{
+    background-color: whitesmoke;
+}
+.btn{
+    color: black;
+    
+}
+
+a:hover {
+    background-color: yellow;
+}
+

@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<div class=main>
+<div class="container">
+  
+   <div role="tabpanel" class="tab-panel " id="profile">
+        <div class="row">
+           <div class="col-sm-6 col-sm-offset-3 ">
+            <article role="login">
+              <h3 class="text-center"> 
+                <i class="fa fa-lock"></i> Create User Account</h3>
+  <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+ 
+  
+  <div class="form-group">
+     
+      <input type="text"  class="form-control input-underline input-lg" placeholder="UserName" formControlName="uname">
+    </div>
+    <div class="alert" *ngIf="!form.controls['uname'].valid && form.controls['uname'].touched" >
+      This field is required with max 25 characters(space allowed)
+    </div>
+        
+        <br>
+
+ 
+ <div class="form-group">
+      <input type="email" class="form-control  input-underline input-lg"  placeholder="Email Address" formControlName ="email">
+    </div>
+    <div class="alert" *ngIf="!form.controls['email'].valid && form.controls['email'].touched">
+      This field is required as example@domain.com
+    </div>
+    <div class="alert" *ngIf="email">
+      Email is already registered
+    </div>
+        
+<br>
+
+      
+     <div class="form-group">
+      <input type="text" class="form-control input-underline input-lg"  placeholder="Aadhar No" formControlName="aadharno">
+    </div>
+    <div class="alert" *ngIf="!form.controls['aadharno'].valid && form.controls['aadharno'].touched">
+      This field is required as 12 digit(9xxx8xxx7xxx)
+    </div>
+     <br>
+
+
+
+     
+    <div class="form-group">
+      
+      <input type="text" class="form-control input-underline input-lg"  placeholder="Contact No" formControlName="contactno">
+    </div>
+    <div class="alert" *ngIf="!form.controls['contactno'].valid && form.controls['contactno'].touched">
+      This field is required as 10 digit(9XXXXXXXXX)
+    </div>
+        
+<br>
+    
+     
+    <div class="form-group">
+      <input type="password" class="form-control input-underline input-lg"   placeholder="Password" formControlName="password">
+    </div>
+    <div class="alert" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+     <p>This field is required as max 12 and min 8...</p> 
+                               <p>  1)atleast one lowercase characters</p>
+                               <p>  1)atleast one uppercase characters</p>
+                                <p> 2)atleast one number</p>
+                                 <p>3)(optional) special character</p>  
+    </div>
+        
+<br>
+
+      
+     <div class="form-group"> 
+      <input type="password" class="form-control input-underline input-lg" id="pwd"   placeholder="Confirm password" formControlName="confpassword">
+    </div>
+    <div class="alert" *ngIf="form.controls['confpassword'].value!= form.controls['password'].value">
+    password does not match
+    </div>
+     <br>
+            <br>   
+      
+<button type="submit" class="btn btn-success btn-block" [disabled]="!form.valid">Submit</button>
+  </form>
+  </article>
+  </div>
+  </div>
+  </div>
+  </div>
+  <button style="display:none"  id="displaymodal" data-toggle="modal" data-target="#signupmodal"></button>
+
+</div>
+<div  id="signupmodal" class="modal fade" data-backdrop="static" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >WE HEAL U</h4>
+            </div>
+            <div class="modal-body">
+                <p>Signup Successful <span class="glyphicon glyphicon-tick"></span></p>
+                <p class="text-warning">Happy to have u on board</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="toLogin()">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+

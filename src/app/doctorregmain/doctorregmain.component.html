@@ -1,0 +1,364 @@
+
+
+
+  <div class="main" >
+    <div class="container">
+      <h1>Enter your details</h1>
+      <!---->
+      <div class="center">
+      <form class="form-group" [formGroup]="form" (ngSubmit)="onSubmit(form.value)" >
+       
+        <div class="row">
+        <div class="col-sm-5">
+        <div class="form-group">
+          <label style="font-size:.5cm">MCI-Id:</label>
+          <input type="text"  class="form-control" formControlName="mciid" >
+        </div>
+        <div class="alert" *ngIf="!form.controls['mciid'].valid && form.controls['mciid'].touched" >
+      This field is required.
+    </div>
+        </div>
+        </div>
+      
+
+         <div class="row">
+         <div class="col-sm-5">      
+        <div class="form-group">
+          <label style="font-size:.5cm">Contact</label>
+          <input type="text" class="form-control"   formControlName="phoneno">
+        </div>
+        <div class="alert" *ngIf="!form.controls['phoneno'].valid && form.controls['phoneno'].touched" >
+      This field is required as 9XXXXXXXXX.
+    </div>
+         </div>
+         </div>
+
+          <div class="row">
+       <div class="col-sm-5">
+        <div class="form-group">
+          <label style="font-size:.5cm">Qualification</label>
+              <select   class="form-control" formControlName="qual">
+                <option>MBBS </option>
+                <option>MD</option>
+                <option>BMBS</option>
+                <option>MBChB</option>
+                <option>MBBCh</option>
+                <option>Dr.MuD</option>
+                <option>MBBCh</option>
+                <option>Dr.Med</option>
+                <option>DO</option>
+                <option>MBBS, MD(Res)</option>
+                <option>MBBS, DM</option>
+                <option>MBBS, PhD</option>
+                <option>MBBS, DPhil</option>
+                <option>BMBS, MD(Res)</option>
+                <option>BMBS, DM</option>
+                <option>BMBS, PhD</option>
+                <option>BMBS, DPhil</option>
+
+                  
+              </select>                   
+             
+            </div>
+              <div class="alert" *ngIf="!form.controls['qual'].valid && form.controls['qual'].touched" >
+      This field is required.
+    </div>
+       </div>
+          </div>
+            
+        <div class="row">
+          <div class="col-sm-5">
+        <div class="form-group">
+          <label style="font-size:.5cm">Experience(years):</label>
+          <select class="form-control" formControlName="exp" required>
+        
+        <option> </option>
+        <option>0-3</option>
+        <option>4-8</option>
+        <option>8-12</option>
+        <option>more than 12</option>
+          </select>
+        </div>
+          
+          <div class="alert" *ngIf="!form.controls['exp'].valid && form.controls['exp'].touched" >
+      This field is required.
+    </div>
+    </div>
+          </div>
+
+     <div class="row">
+          <div class="col-sm-2">
+        <div class="form-group">
+          <label style="font-size:.5cm">Gender:</label>
+          <select class="form-control" formControlName="gen" required>
+        
+        <option> </option>
+        <option>M</option>
+        <option>F</option>
+        <option>O</option>
+        
+          </select>
+        </div>
+          
+          <div class="alert" *ngIf="!form.controls['gen'].valid && form.controls['gen'].touched" >
+      This field is required.
+    </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+          <label style="font-size:.5cm">Consultation Fee(Rs):</label>
+          <select class="form-control" formControlName="fee" required>
+        
+        <option> </option>
+        <option>100</option>
+        <option>200</option>
+        <option>300</option>
+        <option>400</option>
+        <option>500</option>
+      
+        
+          </select>
+        </div>
+          
+          <div class="alert" *ngIf="!form.controls['fee'].valid && form.controls['fee'].touched" >
+      This field is required.
+    </div>
+      </div>
+          </div>
+
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="form-group"> <label style="font-size:.5cm">Working days:</label>
+            <div  class="form-control"style="display:inline"    >
+              <b>
+                <input type="checkbox"   formControlName="workmon">MON
+              
+                <input type="checkbox"  formControlName="worktue">TUE
+               
+                <input type="checkbox"  formControlName="workwed">WED
+               
+                <input type="checkbox" formControlName="workthr">THR
+               
+                <input type="checkbox"  formControlName="workfri">FRI
+               
+                <input type="checkbox"  formControlName="worksat">SAT
+                
+                <input type="checkbox"  formControlName="worksun">SUN
+              </b>
+              </div>
+              </div>
+              <!--<div class="alert" *ngIf="!form.controls['workmon'].checked || form.controls['worktue'].checked||form.controls['workwed'].checked||form.controls['workthr'].checked||form.controls['workfri'].checked||form.controls['worksat'].checked||form.controls['worksun'].checked" >
+      This field is required.
+    </div>-->
+            </div>
+          </div>
+        
+        
+
+        <div class="row">
+          <div class="col-sm-2">
+            <label style="font-size:.5cm;float:left"> Available Time: </label>
+          </div>
+          <div class="col-sm-2">
+
+
+            <label>From</label>
+            <div class="form-group">
+            <select class="form-control"  formControlName="fromtime" required>
+        
+        <option> </option>
+        <option>00:00 </option>
+        <option>01:00</option>
+        <option>02:00</option>
+        <option>03:00</option>
+        <option>04:00</option>
+        <option>05:00</option>
+        <option>06:00</option>
+        <option>07:00</option>
+        <option>08:00</option>
+        <option>09:00</option>
+        <option>10:00</option>
+        <option>11:00</option>
+        <option>12:00</option>
+        <option>13:00</option>
+        <option>14:00</option>
+        <option>15:00</option>
+        <option>16:00</option>
+        <option>17:00</option>
+        <option>18:00</option>
+        <option>19:00</option>
+        <option>20:00</option>
+        <option>21:00</option>
+        <option>22:00</option>
+        <option>23:00</option>
+       
+        
+
+      </select>
+          </div><div class="alert" *ngIf="!form.controls['fromtime'].valid && form.controls['fromtime'].touched" >
+      This field is required.
+    </div>
+          
+          </div>
+          
+          <div class="col-sm-2">
+            <div class="form-group">
+            <label>To</label>
+            <select class="form-control" formControlName="totime" required>
+        
+        <option> </option>
+        <option>01:00</option>
+        <option>02:00</option>
+        <option>03:00</option>
+        <option>04:00</option>
+        <option>05:00</option>
+        <option>06:00</option>
+        <option>07:00</option>
+        <option>08:00</option>
+        <option>09:00</option>
+        <option>10:00</option>
+        <option>11:00</option>
+        <option>12:00</option>
+        <option>13:00</option>
+        <option>14:00</option>
+        <option>15:00</option>
+        <option>16:00</option>
+        <option>17:00</option>
+        <option>18:00</option>
+        <option>19:00</option>
+        <option>20:00</option>
+        <option>21:00</option>
+        <option>22:00</option>
+        <option>23:00</option>
+        <option>24:00</option>
+        
+
+      </select>
+          </div>
+          <div class="alert" *ngIf="!form.controls['totime'].valid && form.controls['totime'].touched" >
+      This field is required.
+    </div>
+          </div>
+          <br>
+          
+         
+          
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+         <div class="alert" *ngIf="form.controls['totime'].value <= form.controls['fromtime'].value" >
+      To time should be greater than from.
+    </div>
+          </div>
+        </div>
+      
+
+        <div class="row">
+           <div class="col-sm-3">
+             <div class="form-group">
+              <label style="font-size:.5cm">Specialization</label>
+            <select class="form-control"  formControlName="sub_category" required>
+        
+        <option> </option>
+        <option *ngFor="let subcategory of subcategories"  value="{{subcategory|json}}" > {{subcategory.subCategoryName}}</option>
+        
+
+            </select>
+           </div>
+           </div>
+          
+        </div>
+         <div class="alert" *ngIf="!form.controls['sub_category'].valid && form.controls['sub_category'].touched" >
+      This field is required.
+    </div>
+
+
+ <div class="row">
+        <div class="col-sm-5">
+<div class="form-group">
+          <label style="font-size:.5cm">Area</label>
+          <input type="text"  class="form-control"  formControlName="area">
+        </div>
+        <div class="alert" *ngIf="!form.controls['area'].valid && form.controls['area'].touched" >
+      This field is required(space,#,/,- allowed).
+    </div>
+        </div>
+ </div>
+
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-3">
+          <label style="font-size:.5cm">ZIP-Code</label>
+          <input type="text"  class="form-control"  formControlName="zip">
+          <br>
+          <div class="alert" *ngIf="!form.controls['zip'].valid && form.controls['zip'].touched" >
+      This field is required(only 6 digit).
+    </div>
+          
+        </div>
+        
+         <div class="col-sm-3">
+          <label style="font-size:.5cm">City</label>
+          <input type="text"  class="form-control"  formControlName="city">
+          <br>
+          <div class="alert" *ngIf="!form.controls['city'].valid && form.controls['city'].touched" >
+      This field is required(spaces allowed).
+    </div>
+        </div>
+        
+         
+        
+</div>
+
+    
+</div>
+
+    
+
+   <div class="form-group">
+    <div class="row">
+      <div class="col-sm-3">
+
+        
+          <label style="font-size:.5cm">State</label>
+          <input type="text"  class="form-control"  formControlName="state">
+        </div>
+        
+
+    </div>
+    
+   </div>
+   <div class="alert" *ngIf="!form.controls['state'].valid && form.controls['state'].touched" >
+      This field is required(spaces allowed) .
+    </div>
+
+<br>
+      <button type="submit" class="btn btn-primary"  [disabled]="!form.valid" >Submit</button>
+      </form>
+      </div>
+      </div>
+       <button style="display:none" id="displaymodal" data-toggle="modal" data-target="#doctormodal"></button>
+    </div>
+
+
+     <div  id="doctormodal" class="modal fade" data-backdrop="static" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" >WE HEAL U</h4>
+            </div>
+            <div class="modal-body">
+                <p>Signup Successful <span class="glyphicon glyphicon-tick"></span></p>
+                <p class="text-warning">Happy to have u on board</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="toHome()">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<br>
